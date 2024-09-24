@@ -5,7 +5,17 @@ public class Product {
     private String name;
     private String description;
     private Double price;
+    private String imageUrl;
+
+
     // Getters and Setters
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public String getId() {
         return id;

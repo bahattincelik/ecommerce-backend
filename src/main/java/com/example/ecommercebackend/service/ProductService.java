@@ -21,6 +21,13 @@ public class ProductService {
         db.collection("products").document().set(product);
     }
 
+    public void addProducts(List<Product> products) {
+        Firestore db = FirestoreClient.getFirestore();
+        for (Product product : products) {
+            db.collection("products").document().set(product);
+        }
+    }
+
     public List<Product> getAllProducts() throws Exception{
         Firestore db = FirestoreClient.getFirestore();
         ApiFuture<QuerySnapshot> query = db.collection("products").get();

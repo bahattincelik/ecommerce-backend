@@ -20,6 +20,11 @@ public class ProductController {
         productService.addProduct(product);
     }
 
+    @PostMapping("/batch")
+    public void addProducts(@RequestBody List<Product> products) {
+        productService.addProducts(products);
+    }
+
     @GetMapping
     public List<Product> getAllProducts() throws Exception {
         return productService.getAllProducts();
