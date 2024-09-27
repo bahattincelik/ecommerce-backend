@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(@org.jetbrains.annotations.NotNull CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:3000", "http://localhost:50075", "https://ecommerceproapp.web.app")
+                .allowedOrigins("http://localhost:3000", "http://localhost:50075", "https://ecommerceproapp.web.app", "http://localhost:53001")
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);

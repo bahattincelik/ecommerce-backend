@@ -34,7 +34,9 @@ public class ProductService {
         List<QueryDocumentSnapshot> documents = query.get().getDocuments();
         List<Product> products = new ArrayList<>();
         for (DocumentSnapshot document : documents) {
-            products.add(document.toObject(Product.class));
+            Product product = document.toObject(Product.class);
+            product.setId(document.getId());
+            products.add(product);
         }
         return products;
     }
