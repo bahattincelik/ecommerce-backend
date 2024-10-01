@@ -1,11 +1,32 @@
 package com.example.ecommercebackend.model;
 
+import com.google.cloud.firestore.annotation.ServerTimestamp;
+
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
+
 public class Order {
     private String id;
     private String userId;
-    private String productId;
-    private int quantity;
+    private List<OrderItem> items;// OrderItem nesnelerinden oluşan bir liste
+    @ServerTimestamp
+    private Date orderDate;
+    private double totalPrice;
 
+    public Order() {
+        this.id = UUID.randomUUID().toString();
+    }
+
+    public Order(String id, String userId, Date orderDate, List<OrderItem> items, double totalPrice) {
+        this.id = id;
+        this.userId = userId;
+        this.orderDate = orderDate;
+        this.items = items;
+        this.totalPrice = totalPrice;
+    }
+
+    // Getter ve Setter metodları
     public String getId() {
         return id;
     }
@@ -22,19 +43,27 @@ public class Order {
         this.userId = userId;
     }
 
-    public String getProductId() {
-        return productId;
+    public Date getOrderDate() {
+        return orderDate;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public List<OrderItem> getItems() {
+        return items;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setItems(List<OrderItem> items) {
+        this.items = items;
+    }
+
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }

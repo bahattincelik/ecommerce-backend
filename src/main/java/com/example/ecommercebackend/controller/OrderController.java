@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/api/orders")
 public class OrderController {
 
     @Autowired
@@ -16,21 +16,21 @@ public class OrderController {
 
     @PostMapping
     public void addOrder(@RequestBody Order order) {
-        orderService.addOrder(order);  // Implement business logic to create an order
+        orderService.addOrder(order);
     }
 
     @GetMapping
     public List<Order> getOrders() throws Exception {
-        return orderService.getOrders();  // Implement business logic to fetch all orders
+        return orderService.getOrders();
     }
 
     @PutMapping("/{id}")
     public void updateOrder(@PathVariable String id, @RequestBody Order updatedOrder) {
-        orderService.updateOrder(id, updatedOrder);  // Implement business logic to update an order
+        orderService.updateOrder(id, updatedOrder);
     }
 
     @DeleteMapping("/{id}")
     public void deleteOrder(@PathVariable String id) {
-        orderService.deleteOrder(id);  // Implement business logic to delete an order
+        orderService.deleteOrder(id);
     }
 }
