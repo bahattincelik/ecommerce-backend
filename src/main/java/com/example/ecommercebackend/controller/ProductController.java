@@ -7,7 +7,7 @@ import com.example.ecommercebackend.model.Product;
 
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-
+@CrossOrigin(origins = "http://10.0.2.2:9090")
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
